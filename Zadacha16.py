@@ -9,3 +9,20 @@
 #     1 2 3 4 5
 #     3
 #     -> 1
+
+N=int(input("Введите количество элементов в массиве: "))
+if N<1:
+    print ("Неправильно введены числа. N - натуральное число.")
+else:
+    import random
+    OurArray=list()
+    for i in range(N):
+        OurArray.append(random.randrange(1,N+1))
+    print (OurArray)
+    X=int(input("Введите нужное Вам число: ")) 
+    if X<1:
+        print ("Неправильно введены числа. Ai>=1")
+    else:
+        NumberOfX=OurArray.count(X) 
+        print(NumberOfX)
+    
