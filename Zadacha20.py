@@ -13,3 +13,31 @@
 
 # ноутбук
 #     12
+
+# Метод определит, есть ли во введенном слове кириллица.
+# Если да, то вернет кириллическую таблицу стоимости, нет - латиницу.
+def is_our_word_cyrillic(our_word, points_cyril, points_latin):
+    kirillitsa = ("АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
+    is_our_word_cyrillic_char = [char for char in kirillitsa if char in our_word]
+    if is_our_word_cyrillic_char:
+        points = points_cyril
+    else:
+        points = points_latin
+    return points
+
+our_word = input("Введите слово на русском или на английском: ").upper()
+points_cyril = {1:'АВЕИНОРСТ',
+      	2:'ДКЛМПУ',
+      	3:'БГЁЬЯ',
+      	4:'ЙЫ',
+      	5:'ЖЗХЦЧ',
+      	8:'ШЭЮ',
+      	10:'ФЩЪ'}
+points_latin = {1:'AEIOULNSTR',
+      	2:'DG',
+      	3:'BCMP',
+      	4:'FHVWY',
+      	5:'K',
+      	8:'JZ',
+      	10:'QZ'}
+our_points = is_our_word_cyrillic(our_word, points_cyril, points_latin)
