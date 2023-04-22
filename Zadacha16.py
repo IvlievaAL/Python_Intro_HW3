@@ -10,19 +10,23 @@
 #     3
 #     -> 1
 
-N=int(input("Введите количество элементов в массиве: "))
-if N<1:
-    print ("Неправильно введены числа. N - натуральное число.")
+# ТЗ сформулировано неточно: из него не ясно, является ли число N, помимо размера массива, еще и максимальным значением Ai.
+# По приведенному примеру это также непонятно.
+# Поэтому данное решение приведено для случая, когда N является еще и максимальным значением Ai.
+import random
+
+n = int(input("Введите количество элементов в массиве: "))
+if n < 1:
+    print("Неправильно введены числа. N - натуральное число.")
 else:
-    import random
-    OurArray=list()
-    for i in range(N):
-        OurArray.append(random.randrange(1,N+1))
-    print (OurArray)
-    X=int(input("Введите нужное Вам число: ")) 
-    if X<1:
-        print ("Неправильно введены числа. Ai>=1")
+    our_array = list()
+    for i in range(n):
+        our_array.append(random.randrange(1, n+1))
+    print(our_array)
+    x = int(input("Введите нужное Вам число: ")) 
+    if x < 1:
+        print("Неправильно введены числа. Ai>=1")
     else:
-        NumberOfX=OurArray.count(X) 
-        print(NumberOfX)
+        number_of_x = our_array.count(x) 
+        print(number_of_x)
     

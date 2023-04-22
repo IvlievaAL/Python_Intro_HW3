@@ -10,18 +10,19 @@
 # ТЗ сформулировано неточно: из него не ясно, является ли число N, помимо размера массива, еще и максимальным значением Ai.
 # По приведенному примеру это также непонятно.
 # Поэтому данное решение приведено для трактовки N только как размера массива. За максимальное значение Ai взято 1000.
-N=int(input("Введите количество элементов в массиве: "))
-if N<1:
-    print ("Неправильно введены числа. N - натуральное число.")
+import random
+
+n = int(input("Введите количество элементов в массиве: "))
+if n < 1:
+    print("Неправильно введены числа. N - натуральное число.")
 else:
-    import random
-    OurArray=list()
-    for i in range(N):
-        OurArray.append(random.randrange(1,1001))
-    print (OurArray)
-    X=int(input("Введите нужное Вам число: ")) # X == любое целое число
-    IndexOfNumberMostCloseToX=0
-    for i in range(1,len(OurArray)):
-        if abs(X-OurArray[i])<abs(X-OurArray[IndexOfNumberMostCloseToX]):
-            IndexOfNumberMostCloseToX=i
-    print(OurArray[IndexOfNumberMostCloseToX])
+    our_array = list()
+    for i in range(n):
+        our_array.append(random.randrange(1, 1001))
+    print(our_array)
+    x = int(input("Введите нужное Вам число: "))
+    index_of_number_most_close_to_x = 0
+    for i in range(1, len(our_array)):
+        if abs(x - our_array[i]) < abs(x - our_array[index_of_number_most_close_to_x]):
+            index_of_number_most_close_to_x = i
+    print(our_array[index_of_number_most_close_to_x])
