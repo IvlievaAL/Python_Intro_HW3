@@ -25,6 +25,15 @@ def is_our_word_cyrillic(our_word, points_cyril, points_latin):
         points = points_latin
     return points
 
+# Метод вернет список очков за каждую букву слова.
+def our_word_costs_per_char(our_word, our_points):
+    costs_of_our_word_per_char = []
+    for char in our_word:
+        for key, value in our_points.items():
+            if char in value:
+                costs_of_our_word_per_char.append(key)
+    return costs_of_our_word_per_char
+                
 our_word = input("Введите слово на русском или на английском: ").upper()
 points_cyril = {1:'АВЕИНОРСТ',
       	2:'ДКЛМПУ',
@@ -41,3 +50,5 @@ points_latin = {1:'AEIOULNSTR',
       	8:'JZ',
       	10:'QZ'}
 our_points = is_our_word_cyrillic(our_word, points_cyril, points_latin)
+costs_of_our_word = our_word_costs_per_char(our_word, our_points)
+print(sum(costs_of_our_word))
